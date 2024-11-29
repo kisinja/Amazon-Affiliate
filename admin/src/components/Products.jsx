@@ -108,7 +108,7 @@ const CreateProduct = () => {
                         name="description"
                         value={productData.description}
                         onChange={handleChange}
-                        className="w-full px-3 py-2 border rounded resize-none"
+                        className="w-full px-3 py-2 border rounded"
                         required
                     />
                 </div>

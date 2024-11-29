@@ -9,7 +9,9 @@ const connectCloudinary = require('./config/cloudinary');
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origins: ["https://ejglobalshop.onrender.com", "http://localhost:5173", "http://localhost:5174"]
+}));
 app.use(morgan("common"));
 app.use(express.json());
 app.use(bodyParser.json());
