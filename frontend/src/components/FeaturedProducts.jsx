@@ -12,7 +12,7 @@ const FeaturedProducts = ({ products }) => {
                 <h1 className="text-2xl md:text-3xl font-semibold text-center mb-8 text-gray-500 tracking-wider">Featured Products</h1>
             </center>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {
                     products && products.slice(0, 6).map((product, index) => (
                         <ProductCard key={index} product={product} />
