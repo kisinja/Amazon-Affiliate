@@ -18,7 +18,7 @@ const ProductCard = ({ product, handleCompare }) => {
     const [showFullDescription, setShowFullDescription] = useState(false);
 
     return (
-        <div className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 w-[250px] md:w-full m-auto">
+        <div className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 w-full md:w-full m-auto">
             {/* Image Section */}
             <Link to={`/product/${_id}`} onClick={() => scrollTo(0, 0)}>
                 <img

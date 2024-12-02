@@ -15,11 +15,11 @@ const ProductsList = () => {
 
     // Mapping categories to icons
     const categoryIcons = {
-        Bathroom: <FaToilet size={20} />,
-        Kitchen: <FaUtensils size={20} />,
-        "Living Room": <FaCouch size={20} />,
-        Bedroom: <FaBed size={20} />,
-        "Garden Supplies": <FaTree size={20} />,
+        Bathroom: <FaToilet size={25} className="text-orange-600" />,
+        Kitchen: <FaUtensils size={25} className="text-orange-600" />,
+        "Living Room": <FaCouch size={25} className="text-orange-600" />,
+        Bedroom: <FaBed size={20} className="text-orange-600" />,
+        "Garden Supplies": <FaTree size={25} className="text-orange-600" />,
     };
 
     // Fetch products from API
@@ -158,9 +158,9 @@ const ProductsList = () => {
                 {/* No Products */}
                 {filteredProducts.length === 0 && (
                     <div className="flex justify-center items-center">
-                        <h3 className="text-gray-600 font-semibold">
-                            Currently no {selectedCategory} products
-                        </h3>
+                        <div className="text-gray-600 font-semibold p-3 rounded-lg bg-white flex justify-center items-center">
+                            Currently no {selectedCategory} decor products available.
+                        </div>
                     </div>
                 )}
             </div>
