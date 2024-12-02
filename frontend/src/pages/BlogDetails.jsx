@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const BlogDetails = () => {
     const { id } = useParams();
@@ -84,12 +84,17 @@ const BlogDetails = () => {
                         <h4 className="text-xl font-semibold mb-3">Tags</h4>
                         <div className="flex flex-wrap gap-2">
                             {blog.tags?.map((tag, index) => (
-                                <span key={index} className="bg-orange-600 text-white px-3 py-1 rounded-full text-sm w-fit font-semibold">
+                                <Link
+                                    to={`/blogs?tag=${encodeURIComponent(tag)}`}
+                                    key={index}
+                                    className="bg-orange-600 text-white px-3 py-1 rounded-full text-sm font-semibold hover:bg-orange-700 transition"
+                                >
                                     {tag.startsWith('#') ? '' : '#'}{tag}
-                                </span>
+                                </Link>
                             ))}
                         </div>
                     </div>
+
 
                     {/* Action Buttons */}
                     <div className="mt-8 text-center">
