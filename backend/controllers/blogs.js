@@ -58,6 +58,8 @@ const getBlogsByTag = async (req, res) => {
 const createBlog = async (req, res) => {
     const { title, content, tags, published } = req.body;
 
+    const user = req.user;
+
     if (!req.file) {
         return res.status(400).json({ message: "No image uploaded", success: false });
     };
@@ -69,7 +71,7 @@ const createBlog = async (req, res) => {
         const blog = new Blog({
             title,
             content,
-            author: 'admin',
+            author: user.username,
             imageUrl: imgUrl,
             tags: JSON.parse(tags),
             published,

@@ -9,12 +9,13 @@ const {
     getBlogsByTag
 } = require('../controllers/blogs');
 const upload = require('../middleware/multer');
+const authUser = require('../middleware/authUser');
 
 const router = express.Router();
 
 router.get('/', getAllBlogs);
 router.get('/:id', getBlogById);
-router.post('/', upload.single('imageUrl'), createBlog);
+router.post('/', authUser, upload.single('imageUrl'), createBlog);
 router.put('/:id', updateBlog);
 router.delete('/:id', deleteBlog);
 router.get('/tag', getBlogsByTag);
