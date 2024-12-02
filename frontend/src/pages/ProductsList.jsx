@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import ProductCard from "../components/ProductCard";
 import { toast } from "react-toastify";
+import { FaToilet, FaUtensils, FaCouch, FaBed, FaTree } from "react-icons/fa"; // Import React Icons
 
 const ProductsList = () => {
     const [products, setProducts] = useState([]);
@@ -11,6 +12,15 @@ const ProductsList = () => {
     const [comparisonList, setComparisonList] = useState([]);
 
     const baseUrl = import.meta.env.VITE_BASE_URL;
+
+    // Mapping categories to icons
+    const categoryIcons = {
+        Bathroom: <FaToilet size={20} />,
+        Kitchen: <FaUtensils size={20} />,
+        "Living Room": <FaCouch size={20} />,
+        Bedroom: <FaBed size={20} />,
+        "Garden Supplies": <FaTree size={20} />,
+    };
 
     // Fetch products from API
     useEffect(() => {
@@ -50,7 +60,7 @@ const ProductsList = () => {
         };
 
         fetchCategories();
-    }, [baseUrl]);
+    }, [baseUrl, categories]);
 
     // Filter products by category
     const filteredProducts =
@@ -99,10 +109,12 @@ const ProductsList = () => {
                                 }`}
                             onClick={() => setSelectedCategory(cat.name)}
                         >
-                            <span className="">{cat.name}</span>
+                            <span className="hidden sm:inline">{cat.name}</span>
+                            <span className="sm:hidden">
+                                {categoryIcons[cat.name] || <FaTree size={20} />}
+                            </span>
                         </li>
                     ))}
-
                 </ul>
             </aside>
 
