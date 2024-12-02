@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import ShareButtons from "../components/ShareButtons";
 
 const BlogDetails = () => {
     const { id } = useParams();
@@ -52,7 +53,6 @@ const BlogDetails = () => {
                 {/* Blog Content Area */}
                 <div className="bg-white text-gray-900 p-8 rounded-lg shadow-lg">
                     <h2 className="text-3xl font-bold mb-4">{blog.title}</h2>
-                    {/* <p className="text-lg text-gray-700 mb-6">{blog.excerpt}</p> */}
 
                     <div className="text-gray-700 text-sm space-x-3 mb-6">
                         <span className="inline-block">By <span className="font-semibold">{blog.author}</span></span>
@@ -95,13 +95,11 @@ const BlogDetails = () => {
                         </div>
                     </div>
 
-
-                    {/* Action Buttons */}
-                    <div className="mt-8 text-center">
-                        <button className="bg-primary text-white py-3 px-6 rounded-full font-semibold hover:bg-primary-dark transition">
-                            Share This Blog
-                        </button>
+                    {/* Share Buttons */}
+                    <div className="mt-8">
+                        <ShareButtons blog={blog} />
                     </div>
+
                 </div>
             </div>
         </section>
