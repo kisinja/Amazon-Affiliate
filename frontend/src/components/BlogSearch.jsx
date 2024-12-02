@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-const BlogSearch = ({ blogs, setFilteredBlogs }) => {
-    const [searchTerm, setSearchTerm] = useState("");
+const BlogSearch = ({ blogs, setFilteredBlogs, searchParams }) => {
+    const [searchTerm, setSearchTerm] = useState(searchParams.get("tag") || "");
 
     const handleSearch = (e) => {
         const term = e.target.value.toLowerCase();

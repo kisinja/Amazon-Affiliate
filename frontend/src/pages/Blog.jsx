@@ -58,7 +58,7 @@ const Blog = () => {
                 </Link>
             </div>
 
-            <BlogSearch blogs={blogs} setFilteredBlogs={setFilteredBlogs} />
+            <BlogSearch blogs={blogs} setFilteredBlogs={setFilteredBlogs} searchParams={searchParams} />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredBlogs.map((blog) => (

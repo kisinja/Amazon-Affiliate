@@ -85,7 +85,7 @@ const BlogDetails = () => {
                         <div className="flex flex-wrap gap-2">
                             {blog.tags?.map((tag, index) => (
                                 <Link
-                                    to={`/blogs?tag=${encodeURIComponent(tag)}`}
+                                    to={`/blog?tag=${encodeURIComponent(tag)}`}
                                     key={index}
                                     className="bg-orange-600 text-white px-3 py-1 rounded-full text-sm font-semibold hover:bg-orange-700 transition"
                                 >
