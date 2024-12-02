@@ -47,7 +47,6 @@ const ProductsList = () => {
                 const { data } = await axios.get(`${baseUrl}/categories`);
                 if (data.success) {
                     setCategories(data.categories);
-                    console.log(categories);
                 } else {
                     toast.error(data.message);
                 }
