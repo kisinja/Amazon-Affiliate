@@ -17,6 +17,7 @@ import { useSelector } from 'react-redux';
 import Footer from './components/Footer';
 import Profile from './pages/Profile';
 import CompareProducts from './components/CompareProducts';
+import WishList from './pages/WishList';
 
 const App = () => {
 
@@ -32,6 +33,7 @@ const App = () => {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/about" element={<About />} />
           <Route path="/compare" element={<CompareProducts />} />
+          <Route path="/wishlist" element={<WishList />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/publish-blog" element={token ? <PublishBlog /> : <Navigate to="/login" />} />
           <Route path="/blogs/:id" element={token ? <BlogDetails /> : <Navigate to="/login" />} />
