@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom"
 import ProductCard from "./ProductCard"
 
-const FeaturedProducts = ({ products }) => {
+const FeaturedProducts = ({ featuredProducts: products }) => {
 
     if (products.length === 0) return <div className="flex justify-center items-center text-center text-gray-600 font-semibold pt-12 text-2xl">No Featured Products Now!!</div>
+
 
     return (
         <section className="py-12 px-6 bg-orange-100">

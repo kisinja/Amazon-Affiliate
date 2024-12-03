@@ -148,7 +148,7 @@ const deleteProduct = async (req, res) => {
 // @access  Public
 const getFeaturedProducts = async (req, res) => {
     try {
-        const products = await Product.find({ featured: true }); // Queries based on the 'featured' field
+        const products = await Product.find({ featured: true });
         res.status(200).json({ products, success: true });
     } catch (error) {
         res.status(500).json({ message: error.message, success: false });

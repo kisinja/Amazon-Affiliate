@@ -13,6 +13,8 @@ const Home = () => {
     const [loading, setLoading] = useState(true);
     const [message, setMessage] = useState('');
 
+    const featuredProducts = products.filter(product => product.featured);
+
     useEffect(() => {
         const fetchRelatedProducts = async () => {
             try {
@@ -38,7 +40,7 @@ const Home = () => {
         <main>
             <Banner />
             <Categories />
-            <FeaturedProducts products={products} />
+            <FeaturedProducts featuredProducts={featuredProducts} />
             <HomepageBlogs />
             <Subscribe />
         </main>
