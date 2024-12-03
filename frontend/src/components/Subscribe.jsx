@@ -21,7 +21,7 @@ const Subscribe = () => {
                 setMessage(data.message);
                 setEmail('');
             } else {
-                setMessage(data.message);
+                setMessage(data.message?.error);
             }
         } catch (error) {
             console.log(error.message);

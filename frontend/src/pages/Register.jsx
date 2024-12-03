@@ -8,12 +8,19 @@ const Register = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
 
     const dispatch = useDispatch();
     const { isLoading, error } = useSelector(state => state.auth);
 
     const register = async (e) => {
         e.preventDefault();
+
+        if (confirmPassword !== password) {
+            alert("Passwords don't match!")
+            return;
+        };
 
         const userData = {
             fullName,
@@ -28,28 +35,46 @@ const Register = () => {
     return (
         <div className="flex justify-center items-center min-h-screen bg-primary/30">
 
-            <form action="" onSubmit={register} className="bg-white shadow-lg rounded-lg py-6 px-12 w-[450px]">
+            <form action="" onSubmit={register} className="bg-white shadow-lg rounded-lg py-6 px-12 md:w-[450px] m-auto w-[350px]">
 
                 <h1 className="font-semibold text-3xl mb-4">Register</h1>
 
                 <div className="mb-3 space-y-1">
-                    <label htmlFor="fullName" className="form-label block ">Full Name</label>
+                    <label htmlFor="fullName" className="form-label block text-lg text-gray-700">Full Name</label>
                     <input type="text" className="border-2 p-3 w-full rounded" id="fullName" value={fullName} onChange={(e) => setFullName(e.target.value)} placeholder="Enter your full name" />
                 </div>
 
                 <div className="mb-3 space-y-1">
-                    <label htmlFor="username" className="form-label block ">Username</label>
+                    <label htmlFor="username" className="form-label block text-lg text-gray-700">Username</label>
                     <input type="text" className="border-2 p-3 w-full rounded" id="username" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Enter your username" />
                 </div>
 
                 <div className="mb-3 space-y-1">
-                    <label htmlFor="email" className="form-label block ">Email</label>
+                    <label htmlFor="email" className="form-label block text-lg text-gray-700">Email</label>
                     <input type="email" className="border-2 p-3 w-full rounded" id="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email" />
                 </div>
 
                 <div className="mb-3 space-y-1">
-                    <label htmlFor="password" className="form-label block ">Password</label>
-                    <input type="password" className="border-2 p-3 w-full rounded" id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter your password" />
+                    <label htmlFor="password" className="form-label block text-lg text-gray-700">Password</label>
+                    <div className="relative">
+                        <input type={`${showPassword ? 'text' : 'password'}`} className="border-2 p-3 w-full rounded" id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter your password" />
+                        <span className='bg-orange-500 text-white p-2 rounded-lg absolute right-3 top-1.5 cursor-pointer' title={`${showPassword ? 'Hide Password' : 'Show Password'}`} onClick={() => setShowPassword(!showPassword)}>
+                            {
+                                showPassword ? "Hide" : "Show"
+                            }
+                        </span>
+                    </div>
+                </div>
+                <div className="mb-3 space-y-1">
+                    <label htmlFor="password" className="form-label block text-lg text-gray-700">Confirm Password</label>
+                    <div className="relative">
+                        <input type={`${showPassword ? 'text' : 'password'}`} className="border-2 p-3 w-full rounded" id="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Enter your password" />
+                        <span className='bg-orange-500 text-white p-2 rounded-lg absolute right-3 top-1.5 cursor-pointer' title={`${showPassword ? 'Hide Password' : 'Show Password'}`} onClick={() => setShowPassword(!showPassword)}>
+                            {
+                                showPassword ? "Hide" : "Show"
+                            }
+                        </span>
+                    </div>
                 </div>
 
                 {error && <p className="text-red-500 text-sm">{error}</p>}
