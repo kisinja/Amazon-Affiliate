@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { FaHeart } from "react-icons/fa"; // Importing Heart Icon
-import { useDispatch } from "react-redux"; // To manage "Save for Later" using Redux
+import { FaHeart } from "react-icons/fa";
+import { useDispatch } from "react-redux";
 import { addToWishList } from "../redux/wishListSlice";
 import { toast } from "react-toastify";
 
@@ -14,7 +14,7 @@ const ProductDetails = () => {
 
     const baseUrl = import.meta.env.VITE_BASE_URL;
 
-    const dispatch = useDispatch(); // To dispatch actions for the wishlist
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const fetchProducts = async () => {

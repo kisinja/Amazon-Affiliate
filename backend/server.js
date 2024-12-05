@@ -27,6 +27,7 @@ const commentRouter = require('./routes/comments');
 const userRouter = require('./routes/users');
 const emailRouter = require('./routes/emails');
 const categoryRouter = require('./routes/categories');
+const wishListRouter = require('./routes/wishlist');
 
 // using the routes
 app.use('/api/products', productRouter);
@@ -35,6 +36,7 @@ app.use('/api/comments', commentRouter);
 app.use('/api/user', userRouter);
 app.use('/api/email', emailRouter);
 app.use('/api/categories', categoryRouter);
+app.use('/api/wishlist', wishListRouter);
 
 const port = process.env.PORT || 6000;
 
