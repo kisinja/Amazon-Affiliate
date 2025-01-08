@@ -4,7 +4,7 @@ import Sidebar from "../components/Sidebar";
 
 const HomePage = () => {
 
-    const [pageType, setPageType] = useState('categories');
+    const [pageType, setPageType] = useState('dashboard');
 
     return (
         <main className="flex items-start py-4 px-[5%] gap-8">
