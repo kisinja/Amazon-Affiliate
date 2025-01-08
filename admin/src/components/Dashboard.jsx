@@ -10,7 +10,7 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchDashData = async () => {
             try {
-                const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/dashboard`);
+                const { data } = await axios.get(`${import.meta.env.VITE_BASE_URL}/dashboard`);
                 if (data.success) {
                     setDashData(data);
                     setLoading(false);
