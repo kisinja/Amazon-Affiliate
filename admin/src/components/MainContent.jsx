@@ -1,6 +1,7 @@
 import Category from "./Category";
 import Products from "./Products";
 import Dashboard from "./Dashboard";
+import ProductList from "./ProductList";
 
 const MainContent = ({ pageType }) => {
     if (pageType === 'dashboard') {
@@ -11,6 +12,9 @@ const MainContent = ({ pageType }) => {
     }
     if (pageType === 'products') {
         return <Products />
+    }
+    if (pageType === 'all-products') {
+        return <ProductList />
     }
 };
 

@@ -64,7 +64,7 @@ const CreateProduct = () => {
             });
 
             if (data.success) {
-                toast.success(data.message);
+                toast.success("Product added successfully!");
                 setProductData({
                     title: "",
                     description: "",

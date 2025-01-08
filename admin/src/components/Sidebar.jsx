@@ -1,6 +1,7 @@
 import { AiOutlineDashboard } from 'react-icons/ai';
 import { FaBoxOpen } from 'react-icons/fa';
 import { MdCategory } from 'react-icons/md';
+import { FaGift } from 'react-icons/fa';
 
 const Sidebar = ({ setPageType, pageType }) => {
     const menus = [
@@ -15,9 +16,14 @@ const Sidebar = ({ setPageType, pageType }) => {
             type: "categories",
         },
         {
-            label: "Products",
+            label: "Add Product",
             icon: <FaBoxOpen className="text-xl" />,
             type: "products",
+        },
+        {
+            label: "All Products",
+            icon: <FaGift className="text-xl" />,
+            type: "all-products",
         },
     ];
 

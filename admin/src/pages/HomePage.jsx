@@ -11,7 +11,7 @@ const HomePage = () => {
             <Sidebar setPageType={setPageType} pageType={pageType} />
             <MainContent pageType={pageType} />
         </main>
-    )
-}
+    );
+};
 
-export default HomePage
+export default HomePage;
