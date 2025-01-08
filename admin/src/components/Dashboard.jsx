@@ -12,7 +12,7 @@ const Dashboard = () => {
             try {
                 const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/dashboard`);
                 if (data.success) {
-                    setDashData(data.data);
+                    setDashData(data);
                     setLoading(false);
                 } else {
                     toast.error(data.message);
@@ -32,24 +32,26 @@ const Dashboard = () => {
         );
     }
 
-    return (
+    const { users, products, categories } = dashData;
+
+    return dashData && (
         <div>
             <h1 className="text-2xl font-normal mb-4">Dashboard</h1>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div className="bg-white p-4 rounded-md shadow-md">
                     <h2 className="text-lg font-semibold">Total Users</h2>
-                    <p className="text-3xl font-semibold">{dashData.users}</p>
+                    <p className="text-3xl font-semibold">{users}</p>
                 </div>
 
                 <div className="bg-white p-4 rounded-md shadow-md">
                     <h2 className="text-lg font-semibold">Total Products</h2>
-                    <p className="text-3xl font-semibold">{dashData.products}</p>
+                    <p className="text-3xl font-semibold">{products}</p>
                 </div>
 
                 <div className="bg-white p-4 rounded-md shadow-md">
                     <h2 className="text-lg font-semibold">Total Categories</h2>
-                    <p className="text-3xl font-semibold">{dashData.categories}</p>
+                    <p className="text-3xl font-semibold">{categories}</p>
                 </div>
             </div>
         </div>
