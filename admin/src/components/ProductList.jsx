@@ -34,7 +34,7 @@ const ProductList = () => {
 
     return (
         <div>
-            {products && products.map((item, index) => (
+            {products && products.reverse().map((item, index) => (
                 <ProductCard key={index} product={item} />
             ))}
         </div>
